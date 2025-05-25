@@ -7,3 +7,4 @@ services:
     plan: free
     region: oregon
     branch: main
+    pythonVersion: 3.11
