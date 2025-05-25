@@ -2,3 +2,6 @@ Flask
 pdf2image
 reportlab
 Pillow
+Flask-WTF
+WTForms
+gunicorn
