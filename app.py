@@ -97,7 +97,9 @@ def index():
             else:
                 img = Image.open(chemin)
                 img = img.resize((int(largeur), int(hauteur)), Image.LANCZOS)
-                img.save(sortie_path, format=format_sortie.upper())
+                # ✅ Correction ici
+                format_corrige = 'JPEG' if format_sortie.lower() == 'jpg' else format_sortie.upper()
+                img.save(sortie_path, format=format_corrige)
         except UnidentifiedImageError:
             os.remove(chemin)
             return "❌ Erreur : fichier image non valide.", 400
