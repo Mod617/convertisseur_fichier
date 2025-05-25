@@ -2,9 +2,10 @@ services:
   - type: web
     name: convertisseur-fichier
     env: python
+    runtime: python
     buildCommand: "pip install -r requirements.txt"
     startCommand: "gunicorn app:app"
+    pythonVersion: 3.11
     plan: free
     region: oregon
     branch: main
-    pythonVersion: 3.11
