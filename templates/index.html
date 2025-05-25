@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Convertisseur de fichiers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- LOGO -->
+    <div style="text-align: center; margin-bottom: 10px;">
+        <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" style="max-height: 90px;">
+    </div>
+
+    <h1>Convertir un fichier</h1>
+
+    {% if success %}
+        <div style="text-align: center; margin-bottom: 20px; background: #d4edda; padding: 15px; border-radius: 8px; color: #155724;">
+            ✅ Fichier généré avec succès !<br><br>
+            <a href="{{ url_for('static', filename='converted/' + fichier_genere) }}" download class="download-btn">
+                📥 Télécharger le fichier
+            </a>
+        </div>
+    {% endif %}
+
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+
+        <label for="fichier">Fichier :</label>
+        {{ form.fichier() }}<br><br>
+
+        <label for="largeur">Largeur :</label>
+        {{ form.largeur(step="any") }}
+
+        <label for="hauteur">Hauteur :</label>
+        {{ form.hauteur(step="any") }}
+
+        <label for="unite">Unité :</label>
+        {{ form.unite() }}<br><br>
+
+        <label for="dpi">Résolution (DPI) :</label>
+        {{ form.dpi(min="72", max="1200") }}<br><br>
+
+        <label for="format">Format de sortie :</label>
+        {{ form.format() }}<br><br>
+
+        {{ form.submit() }}
+    </form>
+</body>
+</html>
