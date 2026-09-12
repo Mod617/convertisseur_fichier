@@ -29,7 +29,7 @@ os.makedirs(CONVERTED_FOLDER, exist_ok=True)
 app = Flask(__name__)
 
 # 🔐 Clé secrète sécurisée (à personnaliser en prod)
-app.config['SECRET_KEY'] = 'T7sj$Wp!1q9&Z@e0dPfY#mLxBnC34vXg'
+app.config['SECRET_KEY'] = 'xxxxxxxxxxxx'
 
 # 📏 Limite de taille de fichier : 50 Mo
 app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024  # 50 MB
